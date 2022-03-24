@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// Question 1
+import {useState} from 'react'
+
+import { useEffect } from "react";
+
+function Stopwatch() {
+  let [count, updateCount] = useState(0)
+  useEffect(() => {
+    setTimeout(() => updateCount(count+1), 1000)
+  }, [])
+  return (
+    <div>
+      {count} seconds(s) have elapsed
+    </div>
+  )
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Stopwatch />
     </div>
   );
 }
